@@ -1,0 +1,22 @@
+
+<h3>Products Index</h3>
+
+<form action="/products" method="POST">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+  <input type="text" name="name" placeholder="Name">
+  <input type="number" name="price" placeholder="$$$">
+  <input type="number" name="quantity" placeholder="Quantity">
+  
+  <button type="submit">Submit</button>
+</form>
+
+<ol>
+  <% @products.each do |product| %>
+    <li>
+      
+      <h4><%= product.name %></h4>
+      <p><%= product.price %> | <%= product.quantity %></p>
+    </li>
+  <% end %>
+</ol>
